@@ -1,22 +1,22 @@
-
 import { createSlice } from "@reduxjs/toolkit";
 
 const Useinfoslice = createSlice({
   name: "response",
 
   initialState: {
-    value: {
-      name: "",
-      email: ""
-    }
+    name: "",
+    email: ""
   },
 
   reducers: {
     edited: (state, action) => {
-      state.value = {
-        ...state.value,
-        ...action.payload
-      };
+      if (action.payload.name !== undefined) {
+        state.name = action.payload.name;
+      }
+
+      if (action.payload.email !== undefined) {
+        state.email = action.payload.email;
+      }
     }
   }
 });
@@ -24,4 +24,3 @@ const Useinfoslice = createSlice({
 export const { edited } = Useinfoslice.actions;
 
 export default Useinfoslice.reducer;
-
