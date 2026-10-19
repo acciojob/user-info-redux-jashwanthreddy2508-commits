@@ -7,7 +7,7 @@ const App = () => {
 
   const dispatch = useDispatch();
 
-  const input = useSelector((state) => state.response.value);
+  const input = useSelector((state) => state.response);
 
   return (
     <div>
