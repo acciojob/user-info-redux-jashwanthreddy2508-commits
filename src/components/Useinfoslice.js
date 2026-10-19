@@ -1,19 +1,27 @@
-import {  createSlice } from "@reduxjs/toolkit";
 
-const initialState = {
-  value:"",
-};
-
+import { createSlice } from "@reduxjs/toolkit";
 
 const Useinfoslice = createSlice({
-  name: "info",
-  initialState,
-  reducers: {
+  name: "response",
 
-  edited:(state,action)=>{
-  state.value=action.payload
+  initialState: {
+    value: {
+      name: "",
+      email: ""
+    }
   },
- });
 
-export const {edited}=Useinfoslice.actions
+  reducers: {
+    edited: (state, action) => {
+      state.value = {
+        ...state.value,
+        ...action.payload
+      };
+    }
+  }
+});
+
+export const { edited } = Useinfoslice.actions;
+
 export default Useinfoslice.reducer;
+
